@@ -1,0 +1,23 @@
+-- Database MariaDB or MySQl
+CREATE USER 'dat152user'@'%';
+SET PASSWORD FOR 'dat152user'@'%'=PASSWORD('yt65RRegfPY');
+
+CREATE DATABASE DAT152DB;
+GRANT ALTER,ALTER ROUTINE,CREATE,CREATE ROUTINE,CREATE TEMPORARY TABLES,CREATE VIEW,DELETE,DROP,EXECUTE,INDEX,INSERT,LOCK
+    TABLES,SELECT,SHOW VIEW,UPDATE,TRIGGER ON  DAT152DB.* TO 'dat152user'@'%';
+
+
+.. Table Student
+USE DAT152DB;
+
+DROP TABLE IF EXISTS Student;
+CREATE TABLE Student (
+    id INT UNSIGNED AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    level ENUM('bachelor', 'master', 'phd') NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO Student (id,firstname,lastname,level) VALUES(2,'Ole','Olsen','bachelor');
+SELECT * FROM Student;
